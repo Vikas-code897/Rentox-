@@ -1,39 +1,125 @@
-<header style="background-color:#e60023; padding: 1rem; color: white; text-align: center;">
-  <h1>Rentox</h1>
-  <nav>
-    <a href="#" style="color: white; margin: 0 15px;">Home</a>
-    <a href="#categories" style="color: white; margin: 0 15px;">Categories</a>
-    <a href="#contact" style="color: white; margin: 0 15px;">Contact</a>
-    <a href="#login" style="color: white; margin: 0 15px;">Login</a>
-  </nav>
-</header>
-<section id="categories" style="padding: 2rem; background-color: #f2f2f2;">
-  <h2 style="text-align: center; color: #e60023;">Rental Categories</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 2rem;">
-    
-    <div style="background: white; padding: 1rem; width: 220px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center;">
-      <img src="https://via.placeholder.com/200x130?text=Cooler" alt="Cooler" style="width: 100%; border-radius: 8px;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rentox - Rent Smarter</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #e60023;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Rentox</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="categories" class="grid">
+    <div class="card">
+      <img src="https://via.placeholder.com/200x130?text=Cooler" alt="Cooler">
       <h3>Coolers</h3>
-      <p>Rent desert & tower coolers</p>
+      <p>Desert & tower coolers</p>
     </div>
 
-    <div style="background: white; padding: 1rem; width: 220px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center;">
-      <img src="https://via.placeholder.com/200x130?text=Clothes" alt="Clothes" style="width: 100%; border-radius: 8px;">
+    <div class="card">
+      <img src="https://via.placeholder.com/200x130?text=Clothes" alt="Clothes">
       <h3>Clothes</h3>
-      <p>Ethnic, Casual & Wedding wear</p>
+      <p>Wedding & casual wear</p>
     </div>
 
-    <div style="background: white; padding: 1rem; width: 220px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center;">
-      <img src="https://via.placeholder.com/200x130?text=Camera" alt="Camera" style="width: 100%; border-radius: 8px;">
+    <div class="card">
+      <img src="https://via.placeholder.com/200x130?text=Camera" alt="Camera">
       <h3>Cameras</h3>
-      <p>DSLR & Action Cameras</p>
+      <p>DSLR, GoPro & more</p>
     </div>
 
-    <div style="background: white; padding: 1rem; width: 220px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center;">
-      <img src="https://via.placeholder.com/200x130?text=Bike" alt="Bike" style="width: 100%; border-radius: 8px;">
+    <div class="card">
+      <img src="https://via.placeholder.com/200x130?text=Bike" alt="Bike">
       <h3>Bikes</h3>
-      <p>City & sports bikes for rent</p>
+      <p>City & sports bikes</p>
     </div>
-
-  </div>
   </section>
+
+  <a class="whatsapp-btn" href="https://wa.me/91XXXXXXXXXX" target="_blank">
+    📞 Chat on WhatsApp
+  </a>
+
+  <footer>
+    &copy; 2025 Rentox. All rights reserved.
+  </footer>
+
+</body>
+</html>
