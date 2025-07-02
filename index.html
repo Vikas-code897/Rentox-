@@ -1,150 +1,57 @@
-<!-- ✅ RENTOX: FULL RENTAL WEBSITE CODE IN ONE FILE --><!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rentox - Rent Anything, Anytime</title>
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background: #e60023;
+      background: linear-gradient(135deg, #e60023, #ff6f61);
       color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav {
-      background: #333;
-      color: white;
-      padding: 0.5rem;
+      height: 100vh;
       display: flex;
-      justify-content: space-around;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
     }
     .container {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
+      max-width: 500px;
     }
-    .card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
       margin-bottom: 2rem;
     }
-    input, select, textarea, button {
-      width: 100%;
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    button {
-      background: #e60023;
-      color: white;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #c4001d;
-    }
-    .btns a {
+    a.button {
       display: inline-block;
-      background: #e60023;
-      color: white;
-      padding: 0.7rem 1rem;
-      margin-top: 1rem;
-      border-radius: 5px;
+      background: white;
+      color: #e60023;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: bold;
       text-decoration: none;
+      transition: background 0.3s;
     }
-    .btns a:hover {
-      background: #c4001d;
+    a.button:hover {
+      background: #f1f1f1;
     }
   </style>
 </head>
-<body><header>
-  <h1>Rentox</h1>
-  <p>Rent Anything, Anytime</p>
-</header><nav>
-  <a href="#login">Login</a>
-  <a href="#upload">Upload Asset</a>
-  <a href="#product">Product View</a>
-  <a href="#agreement">Agreement</a>
-</nav><div class="container">  <!-- 🔐 LOGIN -->  <div id="login" class="card">
-    <h2>Login</h2>
-    <input type="text" placeholder="Email or Phone" id="loginField">
-    <button onclick="alert('Logged in! (demo)')">Login</button>
-  </div>  <!-- 📦 UPLOAD -->  <div id="upload" class="card">
-    <h2>Upload Asset</h2>
-    <input type="text" placeholder="Asset Name">
-    <input type="text" placeholder="Location">
-    <input type="number" placeholder="Rent Price">
-    <select>
-      <option value="">Select Duration</option>
-      <option>Per Day</option>
-      <option>Per Week</option>
-      <option>Per Month</option>
-    </select>
-    <textarea placeholder="Description"></textarea>
-    <input type="file">
-    <button>Upload Asset</button>
-  </div>  <!-- 🔍 PRODUCT VIEW -->  <div id="product" class="card">
-    <h2>Desert Cooler</h2>
-    <img src="https://via.placeholder.com/600x300?text=Cooler+Image" width="100%" style="border-radius:10px;">
-    <p><strong>Location:</strong> Bhopal</p>
-    <p><strong>Price:</strong> ₹500 / month</p>
-    <p>This is a high-quality cooler available for monthly rent. Powerful and energy efficient.</p>
-    <div class="btns">
-      <a href="https://wa.me/91XXXXXXXXXX" target="_blank">Chat with Owner</a>
-      <a href="#agreement">Rent Now</a>
-    </div>
-  </div>  <!-- 📄 AGREEMENT -->  <div id="agreement" class="card">
-    <h2>Rental Agreement Form</h2>
-    <form onsubmit="generateAgreement(event)">
-      <input type="text" id="asset" placeholder="Asset Name" required>
-      <input type="text" id="owner" placeholder="Owner Name" required>
-      <input type="text" id="renter" placeholder="Renter Name" required>
-      <input type="text" id="address" placeholder="Asset Address" required>
-      <input type="text" id="price" placeholder="Rent Price" required>
-      <input type="text" id="duration" placeholder="Rental Duration" required>
-      <input type="date" id="startDate" required>
-      <input type="text" id="signature" placeholder="Digital Signature (Text)" required>
-      <button type="submit">Generate Agreement</button>
-    </form>
-    <div id="output" style="margin-top:2rem;"></div>
-  </div></div><script>
-function generateAgreement(e) {
-  e.preventDefault();
-  const asset = document.getElementById("asset").value;
-  const owner = document.getElementById("owner").value;
-  const renter = document.getElementById("renter").value;
-  const address = document.getElementById("address").value;
-  const price = document.getElementById("price").value;
-  const duration = document.getElementById("duration").value;
-  const startDate = document.getElementById("startDate").value;
-  const signature = document.getElementById("signature").value;
+<body>
 
-  const text = `
-    <div style='background:#fff;padding:1rem;border:1px solid #ccc;border-radius:10px;'>
-      <h3>Rental Agreement</h3>
-      <p>This agreement is made between <strong>${owner}</strong> and <strong>${renter}</strong>.</p>
-      <p>The asset <strong>${asset}</strong> at <strong>${address}</strong> will be rented for <strong>${duration}</strong> starting from <strong>${startDate}</strong> for <strong>${price}</strong>.</p>
-      <p><strong>Signature:</strong> ${signature}</p>
-      <p><strong>Date:</strong> ${new Date().toLocaleDateString()}</p>
-    </div>
-  `;
-  document.getElementById("output").innerHTML = text;
-}
-</script></body>
+  <div class="container">
+    <h1>Rentox</h1>
+    <p>Rent Anything, Anytime</p>
+    <a href="login.html" class="button">Login</a>
+  </div>
+
+</body>
 </html>
