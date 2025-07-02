@@ -1,57 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- ✅ FULL RENTOX WEBSITE - SINGLE PAGE DEMO VERSION (No Backend, Mobile-Friendly) --><!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rentox - Rent Anything, Anytime</title>
   <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #e60023, #ff6f61);
-      color: white;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-    .container {
-      max-width: 500px;
-    }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-    a.button {
-      display: inline-block;
-      background: white;
-      color: #e60023;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-    a.button:hover {
-      background: #f1f1f1;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; }
+    header { background: #e60023; color: white; padding: 1rem; text-align: center; font-size: 1.8rem; }
+    nav { background: #333; color: white; padding: 0.7rem 1rem; display: flex; justify-content: space-between; align-items: center; }
+    nav .menu-icon { font-size: 1.5rem; cursor: pointer; }
+    nav input { padding: 0.4rem; border-radius: 4px; border: none; width: 60%; }
+    .sidebar { position: fixed; top: 0; left: -250px; width: 200px; height: 100%; background: #444; color: white; padding: 2rem 1rem; transition: 0.3s; z-index: 1000; }
+    .sidebar a { display: block; color: white; text-decoration: none; margin: 1rem 0; font-size: 1rem; }
+    .content { padding: 1rem; margin-left: 0; transition: 0.3s; }
+    .card { background: white; border-radius: 10px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .card img { width: 100%; border-radius: 8px; }
+    .card h3 { margin-top: 0.5rem; }
+    button { padding: 0.5rem 1rem; background: #e60023; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 0.5rem; }
+    #loginPage, #profileUpload, #rentRequest, #categoriesPage { display: none; }
   </style>
 </head>
-<body>
+<body>  <header>Rentox</header>  <nav>
+    <span class="menu-icon" onclick="toggleSidebar()">☰</span>
+    <input type="text" placeholder="Search city/product..." />
+  </nav>  <div class="sidebar" id="sidebar">
+    <a href="#" onclick="showSection('homePage')">🏠 Home</a>
+    <a href="#" onclick="showSection('categoriesPage')">📂 Categories</a>
+    <a href="#" onclick="showSection('profileUpload')">📤 Rent Your Item</a>
+    <a href="#" onclick="showSection('rentRequest')">📥 Take on Rent</a>
+    <a href="#" onclick="showSection('loginPage')">🔐 Logout</a>
+  </div>  <div class="content"><!-- 🔐 Login Page -->
+<div id="loginPage">
+  <div class="card">
+    <h2>Login</h2>
+    <input type="text" placeholder="Email / Phone" />
+    <input type="password" placeholder="Password" />
+    <button onclick="loginUser()">Login</button>
+  </div>
+</div>
 
-  <div class="container">
-    <h1>Rentox</h1>
-    <p>Rent Anything, Anytime</p>
-    <a href="login.html" class="button">Login</a>
+<!-- 🏠 Home Page -->
+<div id="homePage">
+  <div class="card">
+    <img src="https://via.placeholder.com/600x300?text=Cooler" />
+    <h3>Desert Cooler</h3>
+    <p><strong>Location:</strong> Bhopal</p>
+    <p><strong>Price:</strong> ₹500/month</p>
+    <p><strong>Contact:</strong> 9876543210</p>
+    <button onclick="alert('Request Sent')">Rent Now</button>
   </div>
 
-</body>
+  <div class="card">
+    <img src="https://via.placeholder.com/600x300?text=Camera" />
+    <h3>DSLR Camera</h3>
+    <p><strong>Location:</strong> Indore</p>
+    <p><strong>Price:</strong> ₹1000/day</p>
+    <p><strong>Contact:</strong> 9876543222</p>
+    <button onclick="alert('Request Sent')">Rent Now</button>
+  </div>
+</div>
+
+<!-- 📂 Categories Page -->
+<div id="categoriesPage">
+  <div class="card"><h3>🏠 Home Appliances</h3><p>Cooler, Fridge, AC</p></div>
+  <div class="card"><h3>💻 Electronics</h3><p>Laptop, Camera</p></div>
+  <div class="card"><h3>👕 Garments</h3><p>Party Wear, Traditional</p></div>
+</div>
+
+<!-- 📤 Rent Your Item -->
+<div id="profileUpload">
+  <div class="card">
+    <h2>Upload Item for Rent</h2>
+    <input type="text" placeholder="Item Name">
+    <input type="text" placeholder="City">
+    <input type="number" placeholder="Price">
+    <input type="file">
+    <textarea placeholder="Details"></textarea>
+    <button>Submit</button>
+  </div>
+</div>
+
+<!-- 📥 Take Item on Rent -->
+<div id="rentRequest">
+  <div class="card">
+    <h2>Create Renter Profile</h2>
+    <input type="text" placeholder="Your Name">
+    <input type="text" placeholder="Required Item">
+    <input type="text" placeholder="City">
+    <textarea placeholder="Purpose or Note"></textarea>
+    <button>Submit Request</button>
+  </div>
+</div>
+
+  </div>  <script>
+    const sidebar = document.getElementById("sidebar");
+    const sections = ["homePage", "loginPage", "profileUpload", "rentRequest", "categoriesPage"];
+
+    function toggleSidebar() {
+      sidebar.style.left = sidebar.style.left === "0px" ? "-250px" : "0px";
+    }
+
+    function showSection(id) {
+      sections.forEach(sec => document.getElementById(sec).style.display = "none");
+      document.getElementById(id).style.display = "block";
+      toggleSidebar();
+    }
+
+    function loginUser() {
+      showSection("homePage");
+    }
+
+    // Default load
+    showSection("loginPage");
+  </script></body>
 </html>
